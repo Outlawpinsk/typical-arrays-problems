@@ -1,12 +1,44 @@
-
 exports.min = function min (array) {
-  return 0;
+  const reducer = (acc, el) => {
+    if (acc > el) {
+      return el;
+    } else {
+      return acc;
+    };
+  };
+
+  if (!array) {
+    return 0;
+  } else {
+    return array.reduce(reducer, 0);
+  }
 }
 
 exports.max = function max (array) {
-  return 0;
+  const reducer = (acc, el) => {
+    if (acc < el) {
+      return el;
+    } else {
+      return acc;
+    };
+  }
+  
+  if (!array) {
+    return 0;
+  } else {
+    return array.reduce (reducer, 0);
+  }
 }
 
 exports.avg = function avg (array) {
-  return 0;
+  const reducer = (acc, el) => {
+    acc += el;
+    return acc;
+  };
+  
+  if (!array || array.length === 0) {
+    return 0;
+  } else {
+    return (array.reduce (reducer, 0)) / array.length;
+  }
 }
